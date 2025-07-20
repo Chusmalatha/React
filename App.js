@@ -1,3 +1,6 @@
+import React from "react";
+import {createRoot} from "react-dom/client";
+
 const heading= React.createElement("h1",{id:"heading"},"Hello world from react!");
 //above heading is the react element (javascript object)
 //and here everything in () of createElement are props(properties) of that object)
@@ -9,7 +12,7 @@ const heading= React.createElement("h1",{id:"heading"},"Hello world from react!"
  *  third argument is children tags or text in that html tag.
  */
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const root = createRoot(document.getElementById("root"));
 
 console.log(heading); //object
 
@@ -60,7 +63,7 @@ const parent2=React.createElement(
     React.createElement
     ("div",
         {id:"child2"},
-        [React.createElement("h1",{},"I'm an second h1 tag"),React.createElement("h2",{},"I'm an h2 tag")]
+        [React.createElement("h1",{key: "h1-1"},"I'm an second h1 tag"),React.createElement("h2",{key: "h2-1"},"I'm an h2 tag")]
     )
 );
 root.render(parent2);
