@@ -1,80 +1,69 @@
 import React from "react";
 import {createRoot} from "react-dom/client";
 
-const heading= React.createElement("h1",{id:"heading"},"Hello world from react!");
-//above heading is the react element (javascript object)
-//and here everything in () of createElement are props(properties) of that object)
-//{} in this braces in above function createElement we can add attriburtes we want to that tag
-
-/**  for this react element we are passing three arguments
- *  first argument tag name or element.
- *  second argument properties to that element(like attributes of that html  tag etc).
- *  third argument is children tags or text in that html tag.
- */
-
-const root = createRoot(document.getElementById("root"));
-
-console.log(heading); //object
-
-root.render(heading) //render method converts this object heading into html tag.
-//heading tag is added to root dom
-
-/**
- *
- * <div id="parent">
- *      <div id="child">
- *          <h1></h1>
- *      </div>
- * </div>
- * 
- */
-
-//creating this above nested dom or html code with react
-
-const parent=React.createElement(
-    "div",
-    {id:"parent"},
-    React.createElement
-    ("div",
-        {id:"child"},
-        React.createElement("h1",{},"I'm an h1 tag")
-    )
-);
-root.render(parent);
-
-//ReacElement(object) ==> HTML(Browser understands)
+// React .createElement => ReactElement - JS Object
+// When we render this to DOM => HTML Element
 
 /** 
- * <div id="parent2">
- *      <div id="child2">
- *          <h1>I'm an second h1 tag</h1>
- *          <h2>I'm an h2 tag</h2>
- *      </div>
- * </div>
- * 
- */
-
-/**to add more than one children like there are two heading tags in div tag with child id,
- *  we pass array as the third argument to our object*/
-
-const parent2=React.createElement(
-    "div",
-    {id:"parent2"},
-    React.createElement
-    ("div",
-        {id:"child2"},
-        [React.createElement("h1",{key: "h1-1"},"I'm an second h1 tag"),React.createElement("h2",{key: "h2-1"},"I'm an h2 tag")]
-    )
+const heading = React.createElement(
+    "h1",
+    {id:"heading"},
+    "Namasthe React"
 );
-root.render(parent2);
+*/
 
-//ONLY ONE OBJECT I RENDERED TO THE ROOT OF HTML DOCUMENT WHICH IS RENDERED LAST,OR HERE WE CAN
-//UNDERSTAND LIKE THIS,HERE WE RENDERED DIFFERENT OBJECTS TO THE ROOT(REFERING TO ANY TAG IN HTML)
-//IF WE RENDER TWO OBJECTS TO THE SAME ONE, FIRST ONE IS OVERRIDED BY SECOND ONE.
+//JSX - is not HTML in JS or XML like syntax
 
-//THIS IS THE CORE OF THE REACT.
+//JSX code => React.createElement => ReactElement-Js Object => HTMLElement(render)
+//Single line
+const heading = (
+<h1 className="head" tabIndex="1">
+    Namaste React using JSX
+    </h1>
+    );
 
-// TO SIMPLIFY THIS REACT WE USE JSX WHUICH MAKES ALL THIS REACT CODE EVEN MODE SIMPLER.
+const fn1 = () => true;
 
-// AND IF WE HAVE ALREAD ANY TAGS OR CHILDREN IN THE TAG IF WE RENDER SOME JS OBJECT TO THAT 
- //THEN THE CHILD TAGS ALL IN THAT TAG ARE REPLACED BY THIS OBJECT*/
+const fn2 =() => {                 //fn1 and fn2 are same
+    return true;
+};
+
+
+//React Functional Component
+//USe capital letter first
+//returns JSX code
+const HeadingComponent1= () => { //Arrow function
+    return <h1>Namaste react Functional Component</h1>
+
+};
+
+const elem = <span>React Element</span>;
+const HeadingComponent2= () => <h1>Namaste react Functional Component</h1>;
+
+const number=1000;
+const data=api.getData();  // If it is a malicious api
+
+
+const HeadingComponent= () => (    //Component composition
+    <div id="container">
+        <Title />
+        {/* <Title> </Title> above one and this are same*/}
+        {Title()}
+        {number} 
+        {data} 
+    <h1>Namaste react Functional Component</h1>
+    </div>
+);
+
+const Title = () => (
+    <h1 className="head" tabIndex='5'>
+        Namasthe React using JSX 
+        </h1>
+        
+);
+
+//All above 3 are same
+
+const root = createRoot(document.getElementById("root"));
+root.render(<HeadingComponent />);
+// It replaces the id="root"
