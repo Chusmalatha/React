@@ -196,3 +196,95 @@ DEPENDENCIES(package, library)
 
 
 ** JSX makes our code more readable not React
+** JSX must return only one parent element. So when you are returning multiple elements (like an <h1> and an <h3>), you mst wrap them in something like in div tag or <> </>
+** const heading = (
+  <>
+  {elem}
+  <h1 className="head" tabIndex="1">
+    Namaste React using JSX
+    </h1>
+    );
+    </>
+
+
+ Before Developing our app, we should plan it(what we are going to build)
+# Food APP
+* Header
+  ->Logo
+  ->Nav Items
+* Body
+  ->Search
+  ->RestaurantContainer
+    ->RestaurantCard
+* Footer
+  ->Copyright
+  ->Links
+  ->Address
+  ->Contacts
+
+
+# Props
+->Props is short form for properties
+->are just normal arguments to a function
+->Passing a prop to a component is just a passing an argument to a function
+->we can pass dynamic data to our card
+->When we have to dynamically passing some data to a acomponent, we pass in as a prop
+->const RestaurantCard =(props) => {
+    console.log(props);
+    return(
+        <div className="res-card" style={{backgroundColor: "#f0f0f0"}}>
+            <img 
+            className="res-logo"
+            alt="res-logo"
+            src="https://media.istockphoto.com/id/1056663060/photo/indian-traditional-chicken-biryani-in-handi-dish.jpg?s=612x612&w=0&k=20&c=Emaz4NISjTrd4c76r-o6gMx1QiDQloTjb91-nPmbIYU="
+            />
+            <h3>{props.resName}</h3>
+            <h4>{props.cuisine}</h4>
+            <h4>{props.rating}</h4>
+            <h4>{props.time}</h4>
+        </div>
+    )
+}
+
+const Body = () => {
+    return (
+        <div className="body">
+            <div className="search">Search</div>
+            <div className="res-container">
+                <RestaurantCard 
+                resName="Chusma Foods"
+                cuisine="Biriyani, North Indian, Asian"
+                rating="4.5 stars"
+                time="38 minutes"
+                />
+                <RestaurantCard
+                resName="Renu Foods"
+                cuisine="KFC, North Indian, Asian"
+                rating="4.5 stars"
+                time="38 minutes" />
+            </div>
+->We can desturcture this data as 
+->const RestaurantCard =(props) => {
+  {resName, cuisine}=props
+->const RestaurantCard =({resName, cuisine})
+
+# config driven UI
+->Swiggy done cofig driven UI
+->we can't build different website for different areas like delhi, banagalore, hyderabad
+->our website is driven by data(configs)
+->controlling UI using the data[backend]
+->According to the data we are getting from backend , my UI is changed. This is known as Config driven UI
+
+
+**Data will come in form of JSON
+# Unique ID
+->This is a React rule. When you are displaying a list of components using .map(), React needs a     unique key for each item.
+->It helps React identify which item is which.
+->Each sibling in a list must have a unique, stable key (like and ID).
+->Without proper keys, React may bishave or show a warning in the console.
+->When we have more children for a single parent, we should definetly use an id as unique key.
+
+**
+->don't take index as a keys
+->it is ok to take index as key, but not recommended
+->not using keys (not accepted) <<< index as key <<<<< unique id (best practice)
