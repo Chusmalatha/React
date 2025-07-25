@@ -288,3 +288,75 @@ const Body = () => {
 ->don't take index as a keys
 ->it is ok to take index as key, but not recommended
 ->not using keys (not accepted) <<< index as key <<<<< unique id (best practice)
+
+
+# Why React
+->It make us that write less code and do more
+->It optimizes web page
+->React is fast in DOM manipulation
+->React is only good at DOM manipulation
+
+# File Structure
+->It is not mandatory, but it is better to have a files like similar files are in one folder
+
+
+# import
+->when importing the user-defined file, if we dont mention the extension. By default, it takes .js as extension
+
+
+** Never ever keep the hardcoded data into components file
+** UI layer shows the data which is given by data layer
+
+
+# Export and Import
+->2 types of Export/Import
+  ->Default Export/Import
+    export default component;
+    import component from "path";
+  ->Named Export/Import
+    ->export const component;
+    ->import {component} from "path";
+
+# React Hooks
+->They are normal JS utilty functions which is given to us by react, wriiten by facebook developer inside the react
+->utility fucntion given by react
+->we have to import these, if we want to use these
+->We have to import as named import
+
+->useState()
+  ->import {useState} from "react"
+  ->superpowerful state variable in react
+  ->mostly we use this (80%)
+  ->useState is used to create a state varaible
+
+->useEffect()
+  ->20% we use this
+
+
+# state variable
+->It maintains the state of our component
+->let ListOfRestaurants =[];              //normal variable
+->const [ListOfRestaurants, setListOfRestaurants] =useState([]);   //state variable
+->To modify the list, pass the argument as setList.... in state varibles
+->Super powerful variable updates the UI also, whereas normal varibale doesn't
+
+**Whenver the state varaible changes(updates), react quickly rerenders the component
+**React will keep the UI in sink with the data layer. In the data layer, when you have a local state variable, as soon as your data layer updates, the UI layer will update by rendering.
+**This is the reason why we use react
+**It is a super fast
+
+
+# Reconciliation Alogrithm(React Fiber)(in React16)
+->To update the DOM, this one came in React16
+->React Fibre is a new way of finding the diff and updatign the DOM
+->React uses this algorithm
+->Actual DOM means  <div>   </div>
+->virtual DOM(obj) is representation of Actual DOM
+->Virtuak DOM is kind of nothing, but normal JS
+  # Diff Algorithm 
+    ->It finds out the difference between 2 DOMs (virtual DOM and updated virtual DOM)
+    ->Before Clicking the button and After clcikig the button
+    ->Findind the difference between 2 DOMs and then update
+    ->Finding out the difference between 2 HTML codes is tuff, but finding out the difference between the 2 JS Objects is easy and fast
+->React does not touch the HTML, it just sees the difference betwen objects only.
+->React can efficiently find out the difference betweene virtual DOMs and update the UI.This is the core of react's algorithm.
