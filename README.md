@@ -359,4 +359,92 @@ const Body = () => {
     ->Findind the difference between 2 DOMs and then update
     ->Finding out the difference between 2 HTML codes is tuff, but finding out the difference between the 2 JS Objects is easy and fast
 ->React does not touch the HTML, it just sees the difference betwen objects only.
-->React can efficiently find out the difference betweene virtual DOMs and update the UI.This is the core of react's algorithm.
+->React can efficiently find out the difference betweene virtual DOMs and update the UI. This is the core of react's algorithm.
+
+
+# Monolith Architecture
+->when the web app were developed traditionally, they were all developed using a monolith architecture
+->when we built a huge big project, it has some small pieces like API code, UI code, Authentication code, Database connectivity code, sending SMS code
+->All the code was there in the same service
+->Everything is in one single project.
+->Frontend (React) and backend (like Node.js or Express) are together.
+->You build and deploy everything at once.
+
+
+# Microservice Architecture
+->we have different services for different jobs
+->backend service, ui service, authentication service etc..
+->All these services combined together forms a big app
+->each service has its job, no body interfreing with it
+->every service has different team
+->everything is seperate
+->we can use different languages for different services
+->All theses services run on their specific(different) ports
+* :1234=>UI
+* :1000=>BE
+* :3000=>SMS
+->The app is divided into small, separate parts.
+->React frontend is separate.
+->Backend is made of different services (like login, payment, etc.)
+->Each service has its own small code and runs separately.
+
+
+# How we apps fetch the data from backend
+->There are 2 ways
+  (1)
+  ->as soon as our page loads, we can make an API call and when we get the data then we can render it on to the UI
+  (2)
+  ->as soon as our page loads, we just quickly render it UI. After we quickly rendered, we will make an API call and the rerender it again
+
+->In React we will use 2nd approach
+
+
+# why 2nd approach
+->This gives us a better UX(user experience)
+->In 1st approach, nothing will be shown to us fro sometine and after sometime suddenly we are able to se the UI. It is not good
+->In 2nd approach it is not like that, it is better
+->React has best render mechanism. It can do very fast
+
+
+(1)
+ useEffect(() => {
+        console.log("useEffect called");
+    }, []);
+->Here it prints in console after rendering the page
+->That is the callback function, and it executes after rendering the page
+
+
+(2)
+   useEffect(() => {
+        fetchData();
+    }, []);
+
+    const fetchData = async () => {
+        const data = await fetch(
+            "https://www.swiggy.com/dapi/restaurants/list/v5?lat=16.50330&lng=80.64650&collection=83639&tags=layout_CCS_Biryani&sortBy=&filters=&type=rcv2&offset=0&page_type=null"
+        );
+        const json = await data.json();
+        console.log(json);
+    };
+->UseEffect has 2 aruments one is callback function and the other is dependency array
+->this is called evrytime  when our component renders
+->callback fucntion is mandatory
+->if no dependency array=> UseEffect is called in every render
+->if dependency array is empty =[] => useEffect is called on intial render(just once)
+
+
+# CORS policy
+->chrome is not allowing us to call API's from local host (from one origin to another origin)
+->https://corsproxy.io/?
+->Paste  this before an API
+->we are calling CORS proxy,CORS proxy is making an API call to swiggy and getting the datat and giving to us.
+
+
+# Swiggy API
+->https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9352403&lng=77.624532&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING
+
+# Shimmer UI
+->Before loading the actual data, it shows some user experience UI
+->Like before loading reastuarants in swiggy app, it shows the empty cards
+
+
