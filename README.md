@@ -431,6 +431,7 @@ const Body = () => {
 ->callback fucntion is mandatory
 ->if no dependency array=> UseEffect is called in every render
 ->if dependency array is empty =[] => useEffect is called on intial render(just once)
+->if there is some dependency, it will cal when dependency updated
 
 
 # CORS policy
@@ -447,4 +448,55 @@ const Body = () => {
 ->Before loading the actual data, it shows some user experience UI
 ->Like before loading reastuarants in swiggy app, it shows the empty cards
 
+
+# useState 
+->Try to write these on top of the component <body />
+->Never use this in if else conditions, for loops, functions
+->if we follow these, our application will run smoothly. we dont get lot of errors
+
+
+# Router
+->npm i react-router-dom is used to install the router 
+->the above is not worked properly so use this below one
+->npm install react@19.1.1 react-dom@19.1.1
+->npm install react-router-dom@6.23.0
+->inorder to create routers, intially creating routing configuration
+
+# import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+->createBrowserRouter creates a router configuration
+->RouterProvider provides routing configuration to our app
+
+
+# Outlet
+->Whenever there is a change in path, outlet will be filled with the children according to the path on what page we are
+
+# What is Routing in React?
+->Routing is the way your app handles different URLs and shows different components/pages based on the current URL — without reloading the page.
+🏠Example from a Website
+URL Path	What should show?
+/	Homepage
+/about	About Us page
+/contact	Contact Form page
+
+
+# import { useRouteError } from "react-router-dom";
+->useRouteError is a hook given to us by react-router-dom
+->It gives more info about the errors
+->Whenever a function starts with use, it is hook
+
+
+# anchor tag
+->In routing, dont use the anchor tag
+->If we use the anchor tag, it loads the whole page. But we dont want like that
+->Use the link given by the react-router-dom
+
+
+# 2 types of routing in webapps
+1)Client side routing
+  ->no need to call the networks
+  ->only one page and jst the component getting interchanged
+  ->only one page reloads at first time
+2)Server side routing
+  ->if i click on my anchor tag("/about") about.html , it reloads the whole page, it sends the network call to about.html and fetches that html and renders it on to the web page
+  ->we make a network call, that page coming from server
 

@@ -3,6 +3,7 @@ import resObj from "../utils/mockData";
 import { useState, useEffect } from "react";
 import resObj from "../utils/mockData";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 
 
@@ -13,7 +14,6 @@ const Body = () => {
     const [filteredRestaurant, setFilteredRestaurant] = useState(resObj);
 
     const [searchText,setSearchText]=useState("");
-
 
     //whenever state variable update, react triggers a reconciliation cycle(re-rendeers the component)
 
@@ -120,6 +120,7 @@ const Body = () => {
                         (res) => res.avgRating > 4
                     );
                     setFilteredRestaurant(filteredList);
+                     
                 }}
                 
                 >
@@ -143,7 +144,7 @@ const Body = () => {
                 <RestaurantCard resData={resObj[1]}/>
                 <RestaurantCard resData={resObj[2]}/>*/}
                 {filteredRestaurant.map((restaurant)=>(
-                  <RestaurantCard key={restaurant.id} resData={restaurant}/>
+                  <Link key={restaurant.id} to={"/restaurants/"+restaurant.id}><RestaurantCard resData={restaurant}/></Link>
 
                 ))}
                 

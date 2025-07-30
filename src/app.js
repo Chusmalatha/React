@@ -1,4 +1,4 @@
-/**
+{/**
 # Food APP
 * Header
   ->Logo
@@ -14,13 +14,18 @@
   ->Links
   ->Address
   ->Contacts
-  */
+  */}
 
 import Header from "./components/Header.js";
 import Body from "./components/Body";
 import RestaurantCard from "./components/RestaurantCard.js";
 import React from "react";
 import {createRoot} from "react-dom/client";
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import About from "./components/About";
+import Contact from "./components/Contact.js";
+import Error from "./components/Error.js";
+import RestaurantMenu   from "./components/RestaurantMenu.js";
 
 
 const RestaurantCard =(props) => {
@@ -41,17 +46,47 @@ const RestaurantCard =(props) => {
     )
 }
 
-
-
 const AppLayout = () => {
     return (
         <div className="app">
             <Header />
-            <Body />
+            <Outlet />
+            {/** Outlet is used to render the child components of the AppLayout */}
         </div>
     );
 };
 
+const appRouter = createBrowserRouter([
+    {
+        path: "/",
+        element: <AppLayout />,
+        children:  [
+            {
+                path: "/",
+                element: <Body />,
+            },
+            {
+                path: "/about",
+                element: <About />,
+            },
+            {
+                path: "/contact",
+                element: <Contact />
+            },
+            {
+                path: "/restaurants/:resId",
+                element: <RestaurantMenu />,
+            },
+        ],
+        errorElement: <Error />,
+    },
+
+]);
+
 const root = createRoot(document.getElementById('root'));
 
+{/** 
 root.render(<AppLayout />);
+*/}
+
+root.render(<RouterProvider router={appRouter} />);
