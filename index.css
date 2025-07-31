@@ -69,3 +69,13 @@
     height: 200px;
     width: 200px;
 }
+
+.user-card {
+    padding: 10px;
+    border: 1px solid black;
+}
+
+.gitimg {
+    height: 200px;
+    width: 200px;
+}

@@ -339,6 +339,8 @@ const Body = () => {
 ->const [ListOfRestaurants, setListOfRestaurants] =useState([]);   //state variable
 ->To modify the list, pass the argument as setList.... in state varibles
 ->Super powerful variable updates the UI also, whereas normal varibale doesn't
+->2 elements :the current state value and a function to update it
+
 
 **Whenver the state varaible changes(updates), react quickly rerenders the component
 **React will keep the UI in sink with the data layer. In the data layer, when you have a local state variable, as soon as your data layer updates, the UI layer will update by rendering.
@@ -499,4 +501,84 @@ URL Path	What should show?
 2)Server side routing
   ->if i click on my anchor tag("/about") about.html , it reloads the whole page, it sends the network call to about.html and fetches that html and renders it on to the web page
   ->we make a network call, that page coming from server
+
+
+# class base components
+->We dont use now a days, but useful in interviews
+->If we know this, we can easily understand the react functional components
+->It is just a normal JS class
+->class UserClass extends React.Component
+->React class has a render method
+->It is a class that which has some render which written some piece of jsx
+
+
+# Life cycle of a parent child relationship
+->About us page is parent component
+->Useclasss is there in about us
+->when about page starts rendering onto out web page, it starts rendering the JSX. It goes line by line and see userClass components, and it starts to load useClass now 
+->Whenever the class is instantiated, the cosntructor is called
+->After that, render is called
+1)Parent constructor
+2)Parent Render
+  ->1)child Constructor
+  ->2)child Render
+  ->3)child ComponentDidMountain
+3)Parent componenDidMountain
+
+
+# componentDidMountain()
+->componentDidMount() is a lifecycle method in React class-based components.
+->It is used to make an API calls
+
+
+# when there are multiple children
+->Parent Constructor
+->Parent render
+  *Child-1 Constructor
+  *Child-1 render
+
+  *Child-2 Constructor
+  *Child-2 Render
+
+  <DOM UPDATED - IN SINGLE BATCH>
+  *Child-1 componentDidMountain
+  *Child-2 componentDidMountain
+->Parent componentDidMountain
+
+
+# React LifeCycle method diagram
+->projects.wojtekmaj.pl(website)
+->React has  2 phases
+  ->Render phase(is batched)
+    ->constructor
+    ->Render
+  ->Commit phase(is batched)
+
+->First constructor called and then render called (belongs to Render phase)
+->after react updated, then componentDidMountian is called
+->After completion of render phase for both the children, later commit phase occurs
+
+
+** DOM manipulation is expensive. so that's why it batches things up. This is why react is fast
+
+----MOUNTING----
+->Constructor (Dummy)
+->Render (Dummmy)
+      <HTML Dummy>
+->Component Did Mount
+      <API call>
+      <this.setState>   ->state variable is updated
+
+
+    ----UPDATE-------
+    ->render(API call)
+    <HTML (new API data)>
+
+
+->Component Did Update
+
+
+-----UNMOUNTING-------
+->this function will call when the page is close
+->If we went to contact us page or about page, then it calls
 
