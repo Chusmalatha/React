@@ -634,5 +634,39 @@ URL Path	What should show?
 ->const Grocery = lazy(() => import("./components/Grocery.js"));
 
 
+# SASS and SCSS
+->Writing  css with some super powers
+->companies dont use this, SASS and SCSS
 
-git 
+
+# Style components
+->lot of big companies use these style components
+
+
+# material UI ->this makes our app more beautiful, this is a react library
+
+
+->Tailwind CSS
+->Bootstrap
+->chakra UI
+->ant design
+
+
+# Tailwind CSS
+->this is a framework
+->it works with all the framewroks like react, angular
+->it is generic CSS framework
+->it is a shortcut method of wirting CSS
+
+# PsotCSS
+->postCSS is a tool for transforming CSS along with JS
+->TailwindCSS behind the scenes uses postCSS
+
+
+# Disadvantage
+->If we have to apply a lot of  CSS to our component. we should write classes for each and every small thing. it will be very long. this makes or code ugly.
+
+
+**Parcel bundels the code right.
+**It will include only CSS classes which are required
+->For example if we have 3 m-4 's , it will include only one m-4
