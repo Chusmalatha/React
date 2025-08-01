@@ -15,37 +15,24 @@
   ->Address
   ->Contacts
   */}
-
+import React, { lazy, Suspense } from "react";
 import Header from "./components/Header.js";
 import Body from "./components/Body";
-import RestaurantCard from "./components/RestaurantCard.js";
-import React from "react";
 import {createRoot} from "react-dom/client";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
-import About from "./components/About";
+//import About from "./components/About";
 import Contact from "./components/Contact.js";
 import Error from "./components/Error.js";
 import RestaurantMenu   from "./components/RestaurantMenu.js";
+//import Grocery from "./components/Grocery.js";
 
 
-const RestaurantCard =(props) => {
-    const{resData}=props;
-    return(
-        <div className="res-card" style={{backgroundColor: "#f0f0f0"}}>
-            <img
-            className="res-logo"
-            alt="res-logo"
-            src={ + resData.cloudinaryImageId}
-            />
-            <h3>{resData.name}</h3>
-            <h4>{resData.cuisines.join(",")}</h4>
-            <h4>{resData.avgRating}</h4>
-            <h4>{resData.costForTwo}</h4>
-            <h4>{resData.sla.deliveryTime+' mins'}</h4>
-        </div>
-    )
-}
+//lazy loading, on demand loading
+//dynamic import
+const Grocery = lazy(() => import("./components/Grocery.js"));
+//this import is a function that returns a component, so we can use lazy loading
 
+const About = lazy(() => import("./components/About.js"));
 const AppLayout = () => {
     return (
         <div className="app">
@@ -60,6 +47,7 @@ const appRouter = createBrowserRouter([
     {
         path: "/",
         element: <AppLayout />,
+        errorElement: <Error />,
         children:  [
             {
                 path: "/",
@@ -72,6 +60,10 @@ const appRouter = createBrowserRouter([
             {
                 path: "/contact",
                 element: <Contact />
+            },
+            {
+                path: "/Grocery",
+                element: <Suspense fallback={<h1>Loading...</h1>}> <Grocery /> </Suspense>
             },
             {
                 path: "/restaurants/:resId",

@@ -582,3 +582,57 @@ URL Path	What should show?
 ->this function will call when the page is close
 ->If we went to contact us page or about page, then it calls
 
+# Single responsibility function
+->the single responsibilty of restuarant is to show that 
+->header.js has single responsibilty to show header
+->we should give single responsibilty to every component
+->keep your components as light weight as it is possible
+
+
+# modularity
+->breaking down our code  into different different small components
+->then we can perform test cases easily adn we can test every small part
+->we can catch bug easily and where it is occuring
+->we can re use it again and again (Reusable)
+->Maintainble
+->Testable
+
+
+# custom hooks
+->Hook is just normal JS function
+->The hook we create by our own are called custom hooks
+->It is not mandatory to use "use" before the name,  but it is recommended
+->But linter throws an error, if we dont follow these conventions
+->if somebody comes and see this code, they can easily know that this is hook, this function like that
+->linters are tools
+->if we setup our linters beas on react, then it will throw error if we dont follow these conventions.
+
+
+
+# Chunking
+# Code splitting
+# Dynamic Bundling
+# Lazy loading
+# on demand loading
+->Parcle bundles the all js files into one js file
+->but whe the application is big, the file size will be high
+->It is not good
+->If we have separate files, then it is difficult to call that many(1000) functions
+->Both of these solutionsare not coorect
+->so, we will try to make smaller bundles, this process is known as chunking
+
+# on demand loading
+->we dont load intiially
+->we will load as if required
+
+
+# suspense
+->on demand it loads
+->as soon as i click on this , it will take some time to fetch the data
+->at that particular time , this middle state causes the errors
+->suspense is a component, comes from react
+->const Grocery = lazy(() => import("./components/Grocery.js"));
+
+
+
+git 
