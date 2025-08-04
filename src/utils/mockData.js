@@ -114,6 +114,7 @@ const resObj=[
               "Lebanese"
             ],
             "avgRating": 4.3,
+            "promoted": false,
             "parentId": "13786",
             "avgRatingString": "4.3",
             "totalRatingsString": "6.9K+",
@@ -348,6 +349,7 @@ const resObj=[
             ],
             "avgRating": 4.3,
             "parentId": "612700",
+            "promoted": false,
             "avgRatingString": "4.3",
             "totalRatingsString": "3.6K+",
             "sla": {
@@ -564,6 +566,7 @@ const resObj=[
             ],
             "avgRating": 4.3,
             "parentId": "101299",
+            "promoted": false,
             "avgRatingString": "4.3",
             "totalRatingsString": "12K+",
             "sla": {
@@ -672,7 +675,7 @@ const resObj=[
             "parentId": "8496",
             "avgRatingString": "3.7",
             "totalRatingsString": "1.2K+",
-            "promoted": true,
+            "promoted": false,
             "adTrackingId": "cid=31360273~p=5~adgrpid=31360273#ag1~mp=SWIGGY_IN~bl=FOOD~aet=RESTAURANT~aeid=218611~plpr=COLLECTION~eid=7b571894-a49f-4e48-b4cc-5027443a334f~srvts=1753279489267~collid=83639",
             "sla": {
               "deliveryTime": 27,

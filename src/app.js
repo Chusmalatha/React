@@ -23,7 +23,10 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 //import About from "./components/About";
 import Contact from "./components/Contact.js";
 import Error from "./components/Error.js";
+import { useState, useEffect } from "react";
 import RestaurantMenu   from "./components/RestaurantMenu.js";
+import UserContext from "./utils/UserContext.js";
+
 //import Grocery from "./components/Grocery.js";
 
 
@@ -34,12 +37,26 @@ const Grocery = lazy(() => import("./components/Grocery.js"));
 
 const About = lazy(() => import("./components/About.js"));
 const AppLayout = () => {
+
+    const [userName, setUserName] = useState("");
+
+        //authentication
+    useEffect(() => {
+        // Make an API call and send username and password
+        const data = {
+            name:"Chusma"
+        };
+        setUserName(data.name);
+    },[])
+
     return (
-        <div className="app">
-            <Header />
-            <Outlet />
+        <UserContext.Provider value={{ loggedInUser: userName, setUserName}}>
+            <div className="app">
+                <Header />
+                <Outlet />
             {/** Outlet is used to render the child components of the AppLayout */}
-        </div>
+            </div>
+        </UserContext.Provider>
     );
 };
 

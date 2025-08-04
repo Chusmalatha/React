@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useEffect } from "react";
 
 const User = (props) => {
     const [count1] = useState(0);

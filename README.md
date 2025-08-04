@@ -670,3 +670,63 @@ URL Path	What should show?
 **Parcel bundels the code right.
 **It will include only CSS classes which are required
 ->For example if we have 3 m-4 's , it will include only one m-4
+
+
+# Higher order component
+->It is a function that takes a component and returns a component
+->it is just a normal JS funciton 
+->It takes exisiting component as an input and enhances it , modifies it.
+
+
+# Controlled and Uncontrolled components
+->if restuarantCategory was controlling itself, it would have been controlling component
+->if i take away this power, that this is a uncontrolling component
+
+->if it was managing itself, then it is a uncotnrollign component
+
+
+
+# Props Drilling
+->Props drilling is when you pass data from a parent component through multiple layers of child components, even if only the last one needs it.
+->Grand parent -> parent -> Child -> GrandChild
+->we should avoid this
+
+
+# React Context
+->Here we avoid the props drilling
+->context is lika a global thing, we can access anywhere in the webpage
+->Using useContext hook, we will use this conetxt anywhere in our app
+->In class base components we, dont not have hooks. we cannot use useContext hook here
+<div>
+    loggedInUser : <UserContext.Consumer>
+    {(data) => console.log(data.loggedInUser)}
+    </UserContext.Consumer>
+</div>
+->we should use like this in classBaseComponents as we should not use hooks
+
+
+# UserContext.Provider
+
+//Default
+ <UserContext.Provider value={{ loggedInUser: "Chusma"}}>
+  //Chusma
+    <div className="app">
+      <UserContext.Provider value={{ loggedInUser: "RenuSri"}}>
+      //RenuSri
+        <Header />
+        <Outlet />
+        {/** Outlet is used to render the child components of the AppLayout */}
+      </UserContext.Provider>
+    </div>
+  </UserContext.Provider>
+
+->this is to change the name of the loggedin user
+->the new name is visible in every where in our app
+
+-If we wrap another usrcontec=xt to heade(like nested one)
+->nested value will be shown in our app
+
+
+
+
+...uncotnrolled and controlled
