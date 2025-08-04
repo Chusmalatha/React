@@ -1,7 +1,18 @@
 import { CDN_URL } from "../utils/constant";
+import { useDispatch } from "react-redux";
+import { addItem } from "../utils/cartSlice.js";
 
 
 const ItemList = ({ items, dummy }) => {
+
+
+    const dispatch = useDispatch();
+    //useDispatch is a hook that return a reference to the dispatch function from the Redux store.
+    const handleAddItem = (item) => {
+        dispatch(addItem(item));
+    }
+
+
     return (
     <div className="border-gray-200 border-b-2 flex justify-between">
         <div>
@@ -12,7 +23,9 @@ const ItemList = ({ items, dummy }) => {
         </div>
         <div>
             <div className="absolute">
-                <button className="p-1 bg-black text-white mx-10 rounded-lg shadow-lg">Add +</button>
+                <button className="p-1 bg-black text-white mx-10 rounded-lg shadow-lg"
+                onClick={() => {handleAddItem(items)}}>
+                Add +</button>
             </div>
             <img src={CDN_URL+items.cloudinaryImageId} className="h-30 w-30 rounded-lg" />
             

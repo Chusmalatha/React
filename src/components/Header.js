@@ -3,6 +3,7 @@ import { useState, useContext} from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatus  from "../utils/useOnlineStatus";
 import UserContext from "../utils/UserContext";
+import { useSelector } from "react-redux";
 
 const Header = () => {
     const [btnNameReact,setBtnNameReact] = useState("Login");
@@ -10,6 +11,14 @@ const Header = () => {
 
     const data=useContext(UserContext);
     console.log(data)
+
+
+    //Selector
+    //useSelector is a hook that allows you to extract data from the Redux store state
+    //It takes a function as an argument that receives the entire store state and returns the part of the state you want to access
+    //In this case, we are accessing the items array from the cart slice of the redux store
+    const cartItems = useSelector((store) => store.cart.items);
+    console.log(cartItems);
 
     return (
         <div className="flex justify-between bg-pink-100 shadow-lg mr-2 sm:bg-yellow-100 lg:bg-black">
@@ -33,7 +42,9 @@ const Header = () => {
                     <li  className="px-4">
                         <Link to="/grocery">Grocery</Link>
                     </li>
-                    <li className="px-4">Cart</li>
+                    <li className="px-4 font-bold">
+                        <Link to="/cart">🛒-({cartItems.length} items)</Link>
+                    </li>
                     <button
                     className="login"
                     onClick={() => {

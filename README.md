@@ -727,6 +727,55 @@ URL Path	What should show?
 ->nested value will be shown in our app
 
 
+# Redux
+->redux works in the data layer of an application
+->redux is not mandatory
+->if we are builiding large scale application, where th data is heavily used then it is useful
+->all the applications that are developed using redux can be devdeloped using without redux also
+->redux is an external (or)  sepearte library which we install
+
+->Redux offers handling data, managing you store
+->there are other libraries also which are doing same thing
+->redux offers easy debugging
+->react and redux are great combo
 
 
-...uncotnrolled and controlled
+
+
+# Redux Toolkit
+->standard way of writing redux
+->redux is complicated and we have to add ot of packages to get redux
+->it makes easier to write redux and redux tool kit offers less complicated version of redux. we dont need much packages if we use redux toolkit
+
+
+
+# Architecture of Redux Toolkit
+->redux store is a vey big JS object with a lot of data inside it.
+->redux store conatins slides
+->In redux store has slides like cart slice, user slice
+
+
+->when we click on this add button, it dispatches an action, and then this action will call a function and the function internally modifies the slides of our redux store
+->In Redux, "dispatching an action" is the process of sending an instruction to the Redux store to update its state.
+->this fucntion is known as reducer function
+# Selector
+->It is used to read data from redux store
+->This phenomenon is known as subscribing to the store
+
+
+
+# Redux ToolKit
+->Install @reduxjs/toolkit and react-redux
+->Build our store
+->Connect our store to our app
+->create a Slice(cartSlice)
+->dispatch(action)
+->Selector
+
+
+# Redux devtool
+->it gives us very debugging tools
+
+
+
+....uncontrolled and controlled

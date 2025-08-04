@@ -26,6 +26,11 @@ import Error from "./components/Error.js";
 import { useState, useEffect } from "react";
 import RestaurantMenu   from "./components/RestaurantMenu.js";
 import UserContext from "./utils/UserContext.js";
+import { Provider } from "react-redux";            //provide the store to the app
+import appStore from "./utils/appStore.js";
+import Cart  from "./components/Cart.js";
+
+
 
 //import Grocery from "./components/Grocery.js";
 
@@ -50,13 +55,15 @@ const AppLayout = () => {
     },[])
 
     return (
-        <UserContext.Provider value={{ loggedInUser: userName, setUserName}}>
-            <div className="app">
-                <Header />
-                <Outlet />
-            {/** Outlet is used to render the child components of the AppLayout */}
-            </div>
-        </UserContext.Provider>
+        <Provider store={appStore}>
+            <UserContext.Provider value={{ loggedInUser: userName, setUserName}}>
+                <div className="app">
+                    <Header />
+                    <Outlet />
+                    {/** Outlet is used to render the child components of the AppLayout */}
+                </div>
+            </UserContext.Provider>
+        </Provider>
     );
 };
 
@@ -85,6 +92,10 @@ const appRouter = createBrowserRouter([
             {
                 path: "/restaurants/:resId",
                 element: <RestaurantMenu />,
+            },
+            {
+                path: "/cart",
+                element: <Cart />,
             },
         ],
         errorElement: <Error />,
