@@ -4,6 +4,7 @@ import UserContex from "../utils/UserContext";
 import { data } from "autoprefixer";
 
 
+
 const RestaurantCard =(props) => {
     const{resData}=props;
     const {loggedInUser} = useContext(UserContex);
@@ -12,7 +13,8 @@ const RestaurantCard =(props) => {
         return <div className="m-4 p-4 w-[230] h-[200px] bg-gray-100 rounded-lg">Invalid restaurant data</div>;
     }
     return(        
-        <div className="m-4 p-4 w-[230] rounded-lg h-[400px] bg-gray-200 hover:bg-gray-400" >
+        <div data-testid="resCard"
+        className="m-4 p-4 w-[230] rounded-lg h-[400px] bg-gray-200 hover:bg-gray-400" >
             <img
             className="rounded-lg h-[200px] w-[200px]"
             alt="res-logo"

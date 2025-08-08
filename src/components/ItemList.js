@@ -14,7 +14,8 @@ const ItemList = ({ items, dummy }) => {
 
 
     return (
-    <div className="border-gray-200 border-b-2 flex justify-between">
+    <div data-testid="foodItems"
+    className="border-gray-200 border-b-2 flex justify-between">
         <div>
             <h4>{items.name}</h4>
             <h4>{items.cuisines.slice(0, 3).join(", ")}</h4>

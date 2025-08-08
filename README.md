@@ -778,4 +778,84 @@ URL Path	What should show?
 
 
 
-....uncontrolled and controlled
+# Testing
+->Testing is a huge domain
+->Many types of testings are there
+->here we discuss about developer testing
+# Different types of testing(Developer Testing)
+# 1) Manual Testing
+->testing manually
+->who developed the app, he will test
+->it is not good
+->Even a single line of code mess up or app , it means it may leads to bugs
+# 2) Writing the test cases
+->here we write the test cases
+
+
+# Types of testing (Developer)
+->Unit testing
+->Integration testing
+->End to end testing - e2e testing.
+
+
+# Unit Testing
+->Here we test react components in isolation
+->it tests in unit or component in isolation
+
+
+# Integration testing
+->we will write code to test
+
+
+# End to end testing
+->tests the different types of flow
+->from starting to ending
+->what the user will do from staring to ending
+
+
+# Libraries used for testing
+# react testing library
+->most standard library
+->most of the companies use this
+->it builds on top of of DOM testing library
+->if we are using create react app, then react testing library already integrated to our app. here we didnt use create react app
+
+
+# setting up testing in our app
+->install  react testing library
+npm i -D @testing-library/react
+->install jest library
+npm i -D jest 
+->install babel dependencies
+npm install --save-dev babel-jest @babel/core @babel/preset-env 
+->configure babel
+->configure parcel config file to disable default babel transpilation
+->jest configuration     - npx create-jest
+->install js DOM library
+ 
+->if we are usingthe jest version greater than 28
+->then, we haev to install this library separately
+npm install --save-dev jest-environment-jsdom
+->npm i - D @babel/preset-react  - to make JSX work in test cases
+jsx is not enabled fo rour application. so we need to enable 
+->@babel/preset-react inside my babel config
+babel preset is helping the react code to be convertes into normal html code 
+->npm i -D @testing-library/jest-dom
+
+
+
+***
+->test cases does not run on chrome
+->so they need anevironment(run time)
+->fo that we use js dom
+->js dom is a library which parses and intearcts with assembled HTML, just like a browser
+
+
+# test files
+->the files inside the __tests__ folder
+->Header.test.js
+->Header.test.ts
+->Header.spec.js
+->Header.spec.ts
+
+->__ = dunder

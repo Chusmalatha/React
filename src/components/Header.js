@@ -46,7 +46,7 @@ const Header = () => {
                         <Link to="/cart">🛒-({cartItems.length} items)</Link>
                     </li>
                     <button
-                    className="login"
+                    className="login text-black bg-white rounded-2xl p-1 cursor-pointer"
                     onClick={() => {
                         btnNameReact === "Login" ? setBtnNameReact("Logout") : setBtnNameReact("Login");
                         console.log(btnNameReact);
